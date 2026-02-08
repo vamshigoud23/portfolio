@@ -1,65 +1,337 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const fullText = "Full Stack Developer & Designer";
+
+  useEffect(() => {
+    setMounted(true);
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i <= fullText.length) {
+        setTypedText(fullText.substring(0, i));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100);
+    return () => clearInterval(typingInterval);
+  }, []);
+
+  const techStack = [
+    { name: "React", icon: "⚛️" },
+    { name: "Next.js", icon: "▲" },
+    { name: "TypeScript", icon: "TS" },
+    { name: "Node.js", icon: "🟢" },
+    { name: "Tailwind CSS", icon: "🎨" },
+    { name: "MongoDB", icon: "🍃" },
+    { name: "Git", icon: "📦" },
+    { name: "Python", icon: "🐍" },
+  ];
+
+  const projects = [
+    {
+      title: "E-Commerce Platform",
+      description: "Full-stack online shopping platform with secure payment processing and inventory management",
+      tags: ["Next.js", "MongoDB", "Stripe"],
+    },
+    {
+      title: "Task Management System",
+      description: "Real-time collaborative workspace for teams with activity tracking and notifications",
+      tags: ["React", "Firebase", "Tailwind"],
+    },
+    {
+      title: "Analytics Dashboard",
+      description: "Data visualization platform with interactive charts and reporting features",
+      tags: ["React", "D3.js", "Node.js"],
+    },
+  ];
+
+  const stats = [
+    { label: "Projects Completed", value: "25+" },
+    { label: "Happy Clients", value: "15+" },
+    { label: "Lines of Code", value: "50K+" },
+    { label: "Years Experience", value: "3+" },
+  ];
+
+  if (!mounted) return null;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 transition-colors">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <a href="#home" className="text-xl font-bold hover:text-blue-500 transition-colors">VAMSHI</a>
+            <div className="hidden md:flex space-x-8">
+              <a href="#home" className="text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
+              <a href="#about" className="text-sm font-medium hover:text-blue-500 transition-colors">About</a>
+              <a href="#projects" className="text-sm font-medium hover:text-blue-500 transition-colors">Projects</a>
+              <a href="#contact" className="text-sm font-medium hover:text-blue-500 transition-colors">Contact</a>
+            </div>
+            <button 
+              className="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
+            <div className="px-4 py-4 space-y-3">
+              <a 
+                href="#home" 
+                className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a 
+                href="#about" 
+                className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </a>
+              <a 
+                href="#projects" 
+                className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Projects
+              </a>
+              <a 
+                href="#contact" 
+                className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="text-center animate-fadeIn">
+            <div className="mb-8">
+              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-4 tracking-tight bg-gradient-to-r from-zinc-900 to-zinc-600 dark:from-zinc-50 dark:to-zinc-400 bg-clip-text text-transparent">
+                VAMSHI
+              </h1>
+              <div className="h-7 sm:h-9 md:h-10 flex items-center justify-center min-h-[2rem]">
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-zinc-600 dark:text-zinc-400 font-light">
+                  {typedText}
+                  <span className="animate-pulse">|</span>
+                </p>
+              </div>
+            </div>
+            <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto mb-10 px-4 leading-relaxed">
+              Building innovative web solutions with cutting-edge technologies. 
+              Specializing in creating responsive, user-friendly applications that drive real business value.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+              <a
+                href="#projects"
+                className="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 rounded-full font-medium hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                className="w-full sm:w-auto px-8 py-3.5 border-2 border-zinc-900 dark:border-zinc-50 rounded-full font-medium hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-50 dark:hover:text-zinc-900 transition-all hover:scale-105"
+              >
+                Get In Touch
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-medium hover:from-blue-600 hover:to-purple-700 transition-all hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                View Resume
+              </a>
+            </div>
+            <div className="flex justify-center space-x-6 mt-12">
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all hover:scale-110"
+                aria-label="GitHub"
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                </svg>
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all hover:scale-110"
+                aria-label="Twitter"
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section id="about" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-zinc-50 dark:bg-zinc-900">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4">Tech Stack</h2>
+          <p className="text-center text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-10 sm:mb-12 max-w-2xl mx-auto px-4">
+            Technologies I work with on a daily basis
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+            {techStack.map((tech, index) => (
+              <div
+                key={tech.name}
+                className="bg-white dark:bg-zinc-800 p-5 sm:p-6 rounded-xl sm:rounded-2xl text-center hover:shadow-xl transition-all hover:scale-105 animate-fadeIn"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">{tech.icon}</div>
+                <div className="font-medium text-sm sm:text-base">{tech.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4">Featured Projects</h2>
+          <p className="text-center text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-10 sm:mb-12 max-w-2xl mx-auto px-4">
+            Some of my recent work that showcases my skills
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className="bg-zinc-50 dark:bg-zinc-900 rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:scale-105 animate-fadeIn cursor-pointer"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500"></div>
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-white dark:bg-zinc-800 rounded-full text-xs sm:text-sm font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-zinc-50 dark:bg-zinc-900">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-12">By The Numbers</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className="text-center animate-fadeIn p-4"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Let's Work Together</h2>
+          <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 leading-relaxed">
+            Have a project in mind or want to discuss opportunities? I'd love to hear from you. 
+            Let's create something amazing together!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="mailto:vamshi@example.com"
+              className="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 rounded-full font-medium hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              Learning
-            </a>{" "}
-            center.
+              Email Me
+            </a>
+            <a
+              href="#"
+              className="w-full sm:w-auto px-8 py-3.5 border-2 border-zinc-900 dark:border-zinc-50 rounded-full font-medium hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-50 dark:hover:text-zinc-900 transition-all hover:scale-105"
+            >
+              Download Resume
+            </a>
+          </div>
+          <p className="mt-8 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 px-4">
+            Available for freelance projects and full-time opportunities
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-lg sm:text-xl font-bold">VAMSHI</div>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+              <a href="#home" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Home</a>
+              <a href="#about" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">About</a>
+              <a href="#projects" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Projects</a>
+              <a href="#contact" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Contact</a>
+            </div>
+            <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 text-center">
+              © 2026 VAMSHI. All rights reserved.
+            </div>
+          </div>
         </div>
-      </main>
+      </footer>
     </div>
   );
 }
