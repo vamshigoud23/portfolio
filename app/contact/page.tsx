@@ -72,7 +72,9 @@ export default function Contact() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a href="/" className="text-xl font-bold hover:text-blue-500 transition-colors">VAMSHI</a>
+            <a href="/" className="flex items-center gap-2 group">
+              <img src="/logo.png" alt="VJ Logo" className="h-12 w-auto transition-transform group-hover:scale-110" />
+            </a>
             <div className="flex space-x-8">
               <a href="/" className="text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
               <a href="/about" className="text-sm font-medium hover:text-blue-500 transition-colors">About</a>
@@ -153,7 +155,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="your@email.com"
+                    placeholder="your@gmail.com"
                   />
                 </div>
                 <div>
@@ -218,8 +220,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:vamshi@example.com" className="text-zinc-600 dark:text-zinc-400 hover:text-blue-500 transition-colors">
-                      vamshi@example.com
+                    <a href="mailto:vamshijaligama66@gmail.com" className="text-zinc-600 dark:text-zinc-400 hover:text-blue-500 transition-colors">
+                      vamshijaligama66@gmail.com
                     </a>
                   </div>
                 </div>
@@ -232,8 +234,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:+1234567890" className="text-zinc-600 dark:text-zinc-400 hover:text-purple-500 transition-colors">
-                      +1 (234) 567-890
+                    <a href="+91 8498913929" className="text-zinc-600 dark:text-zinc-400 hover:text-purple-500 transition-colors">
+                      +91 8498913929
                     </a>
                   </div>
                 </div>
@@ -248,7 +250,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Location</h3>
                     <p className="text-zinc-600 dark:text-zinc-400">
-                      San Francisco, CA
+                      Hyderabad,India
                     </p>
                   </div>
                 </div>
@@ -283,7 +285,9 @@ export default function Contact() {
       <footer className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-lg sm:text-xl font-bold">VAMSHI</div>
+            <div className="flex items-center gap-2">
+              <img src="/logo.png" alt="VJ Logo" className="h-10 w-auto" />
+            </div>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               <a href="/" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Home</a>
               <a href="/about" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">About</a>

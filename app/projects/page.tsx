@@ -3,15 +3,15 @@
 export default function Projects() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Hybrid AutoEncoder Driven ML model for Performance monitoring in 5g cellular Networks",
       description: "Full-stack online shopping platform with secure payment processing and inventory management",
       tags: ["Next.js", "MongoDB", "Stripe"],
       link: "#",
     },
     {
-      title: "Task Management System",
-      description: "Real-time collaborative workspace for teams with activity tracking and notifications",
-      tags: ["React", "Firebase", "Tailwind"],
+      title: "Courier Management System",
+      description: "Engineered a courier management system that enhanced delivery accuracy by 25% , Integrated GPS Tracking for real-time updates and streamlined logistics operations reducing delivery time by 15%. Built an admin dashboard to manage orders, Customers, and delivery agents efficiently.",
+      tags: ["Python", "Django","mysql","HTML","CSS","JavaScript",],
       link: "#",
     },
     {
@@ -46,7 +46,9 @@ export default function Projects() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a href="/" className="text-xl font-bold hover:text-blue-500 transition-colors">VAMSHI</a>
+            <a href="/" className="flex items-center gap-2 group">
+              <img src="/logo.png" alt="VJ Logo" className="h-12 w-auto transition-transform group-hover:scale-110" />
+            </a>
             <div className="flex space-x-8">
               <a href="/" className="text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
               <a href="/about" className="text-sm font-medium hover:text-blue-500 transition-colors">About</a>

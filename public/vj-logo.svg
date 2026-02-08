@@ -1,0 +1,7 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Orange V -->
+  <path d="M20 20 L75 20 L100 140 L125 20 L155 20 L110 180 L90 180 Z" fill="#F37021"/>
+  
+  <!-- Teal J -->
+  <path d="M145 20 L195 20 L195 140 Q195 160 185 170 Q175 180 155 180 Q135 180 125 170 L135 150 Q140 155 155 155 Q165 155 170 150 Q175 145 175 135 L175 40 L145 40 Z" fill="#4AACA8"/>
+</svg>

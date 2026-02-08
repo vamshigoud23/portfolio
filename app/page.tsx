@@ -30,7 +30,9 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a href="/" className="text-xl font-bold hover:text-blue-500 transition-colors">VAMSHI</a>
+            <a href="/" className="flex items-center gap-2 group">
+              <img src="/logo.png" alt="VJ Logo" className="h-12 w-auto transition-transform group-hover:scale-110" />
+            </a>
             <div className="hidden md:flex space-x-8">
               <a href="/" className="text-sm font-medium text-blue-500">Home</a>
               <a href="/about" className="text-sm font-medium hover:text-blue-500 transition-colors">About</a>

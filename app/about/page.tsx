@@ -13,10 +13,9 @@ export default function About() {
   ];
 
   const stats = [
-    { label: "Projects Completed", value: "25+" },
-    { label: "Happy Clients", value: "15+" },
+    { label: "Projects Completed", value: "15+" },
     { label: "Lines of Code", value: "50K+" },
-    { label: "Years Experience", value: "3+" },
+    { label: "Years Experience", value: "2+" },
   ];
 
   return (
@@ -25,7 +24,9 @@ export default function About() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a href="/" className="text-xl font-bold hover:text-blue-500 transition-colors">VAMSHI</a>
+            <a href="/" className="flex items-center gap-2 group">
+              <img src="/logo.png" alt="VJ Logo" className="h-12 w-auto transition-transform group-hover:scale-110" />
+            </a>
             <div className="flex space-x-8">
               <a href="/" className="text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
               <a href="/about" className="text-sm font-medium text-blue-500">About</a>
@@ -41,7 +42,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">About Me</h1>
           <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            I'm a passionate Full Stack Developer and Designer with expertise in building modern web applications. 
+            I'm a passionate Full Stack Developer  with expertise in building modern web applications. 
             I love turning complex problems into simple, beautiful, and intuitive solutions.
           </p>
         </div>
