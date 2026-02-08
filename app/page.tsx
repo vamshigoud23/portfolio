@@ -22,42 +22,6 @@ export default function Home() {
     return () => clearInterval(typingInterval);
   }, []);
 
-  const techStack = [
-    { name: "React", icon: "⚛️" },
-    { name: "Next.js", icon: "▲" },
-    { name: "TypeScript", icon: "TS" },
-    { name: "Node.js", icon: "🟢" },
-    { name: "Tailwind CSS", icon: "🎨" },
-    { name: "MongoDB", icon: "🍃" },
-    { name: "Git", icon: "📦" },
-    { name: "Python", icon: "🐍" },
-  ];
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "Full-stack online shopping platform with secure payment processing and inventory management",
-      tags: ["Next.js", "MongoDB", "Stripe"],
-    },
-    {
-      title: "Task Management System",
-      description: "Real-time collaborative workspace for teams with activity tracking and notifications",
-      tags: ["React", "Firebase", "Tailwind"],
-    },
-    {
-      title: "Analytics Dashboard",
-      description: "Data visualization platform with interactive charts and reporting features",
-      tags: ["React", "D3.js", "Node.js"],
-    },
-  ];
-
-  const stats = [
-    { label: "Projects Completed", value: "25+" },
-    { label: "Happy Clients", value: "15+" },
-    { label: "Lines of Code", value: "50K+" },
-    { label: "Years Experience", value: "3+" },
-  ];
-
   if (!mounted) return null;
 
   return (
@@ -66,12 +30,12 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a href="#home" className="text-xl font-bold hover:text-blue-500 transition-colors">VAMSHI</a>
+            <a href="/" className="text-xl font-bold hover:text-blue-500 transition-colors">VAMSHI</a>
             <div className="hidden md:flex space-x-8">
-              <a href="#home" className="text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
-              <a href="#about" className="text-sm font-medium hover:text-blue-500 transition-colors">About</a>
-              <a href="#projects" className="text-sm font-medium hover:text-blue-500 transition-colors">Projects</a>
-              <a href="#contact" className="text-sm font-medium hover:text-blue-500 transition-colors">Contact</a>
+              <a href="/" className="text-sm font-medium text-blue-500">Home</a>
+              <a href="/about" className="text-sm font-medium hover:text-blue-500 transition-colors">About</a>
+              <a href="/projects" className="text-sm font-medium hover:text-blue-500 transition-colors">Projects</a>
+              <a href="/contact" className="text-sm font-medium hover:text-blue-500 transition-colors">Contact</a>
             </div>
             <button 
               className="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
@@ -94,28 +58,28 @@ export default function Home() {
           <div className="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
             <div className="px-4 py-4 space-y-3">
               <a 
-                href="#home" 
+                href="/" 
                 className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </a>
               <a 
-                href="#about" 
+                href="/about" 
                 className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </a>
               <a 
-                href="#projects" 
+                href="/projects" 
                 className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Projects
               </a>
               <a 
-                href="#contact" 
+                href="/contact" 
                 className="block py-2 text-sm font-medium hover:text-blue-500 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -147,13 +111,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
               <a
-                href="#projects"
+                href="/projects"
                 className="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 rounded-full font-medium hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 View My Work
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="w-full sm:w-auto px-8 py-3.5 border-2 border-zinc-900 dark:border-zinc-50 rounded-full font-medium hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-50 dark:hover:text-zinc-900 transition-all hover:scale-105"
               >
                 Get In Touch
@@ -172,7 +136,7 @@ export default function Home() {
             </div>
             <div className="flex justify-center space-x-6 mt-12">
               <a 
-                href="https://github.com" 
+                href="https://github.com/vamshigoud23" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all hover:scale-110"
@@ -183,7 +147,7 @@ export default function Home() {
                 </svg>
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/vamshi-goud-bb37a2256/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all hover:scale-110"
@@ -209,122 +173,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tech Stack Section */}
-      <section id="about" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-zinc-50 dark:bg-zinc-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4">Tech Stack</h2>
-          <p className="text-center text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-10 sm:mb-12 max-w-2xl mx-auto px-4">
-            Technologies I work with on a daily basis
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-            {techStack.map((tech, index) => (
-              <div
-                key={tech.name}
-                className="bg-white dark:bg-zinc-800 p-5 sm:p-6 rounded-xl sm:rounded-2xl text-center hover:shadow-xl transition-all hover:scale-105 animate-fadeIn"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">{tech.icon}</div>
-                <div className="font-medium text-sm sm:text-base">{tech.name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4">Featured Projects</h2>
-          <p className="text-center text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-10 sm:mb-12 max-w-2xl mx-auto px-4">
-            Some of my recent work that showcases my skills
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className="bg-zinc-50 dark:bg-zinc-900 rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:scale-105 animate-fadeIn cursor-pointer"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500"></div>
-                <div className="p-5 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-white dark:bg-zinc-800 rounded-full text-xs sm:text-sm font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-zinc-50 dark:bg-zinc-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-12">By The Numbers</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className="text-center animate-fadeIn p-4"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                  {stat.value}
-                </div>
-                <div className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Let's Work Together</h2>
-          <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 leading-relaxed">
-            Have a project in mind or want to discuss opportunities? I'd love to hear from you. 
-            Let's create something amazing together!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-            <a
-              href="mailto:vamshi@example.com"
-              className="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 rounded-full font-medium hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              Email Me
-            </a>
-            <a
-              href="#"
-              className="w-full sm:w-auto px-8 py-3.5 border-2 border-zinc-900 dark:border-zinc-50 rounded-full font-medium hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-50 dark:hover:text-zinc-900 transition-all hover:scale-105"
-            >
-              Download Resume
-            </a>
-          </div>
-          <p className="mt-8 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 px-4">
-            Available for freelance projects and full-time opportunities
-          </p>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-lg sm:text-xl font-bold">VAMSHI</div>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-              <a href="#home" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Home</a>
-              <a href="#about" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">About</a>
-              <a href="#projects" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Projects</a>
-              <a href="#contact" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Contact</a>
+              <a href="/" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Home</a>
+              <a href="/about" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">About</a>
+              <a href="/projects" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Projects</a>
+              <a href="/contact" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">Contact</a>
             </div>
             <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 text-center">
               © 2026 VAMSHI. All rights reserved.
