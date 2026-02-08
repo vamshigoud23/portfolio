@@ -6,7 +6,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const fullText = "Full Stack Developer & Designer";
+  const fullText = "Full Stack Developer";
 
   useEffect(() => {
     setMounted(true);
