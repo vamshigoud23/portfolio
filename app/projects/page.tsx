@@ -4,7 +4,7 @@ export default function Projects() {
   const projects = [
     {
       title: "Hybrid AutoEncoder Driven ML model for Performance monitoring in 5g cellular Networks",
-      description: "Developed a Hybrid Autoencoder-Driven ML Model for proactive performance monitoring in 5G cellular networks. The system utilizes a Deep AutoEncoder for feature extraction and a Random Forest classifier for predicting dropped connections with high accuracy.Designed an interactive Tkinter-based GUI for network administrators to train models, load datasets, and make real-time predictions.The model demonstrated improved efficiency, reducing false detection rates and enhancing network reliability compared to traditional rule-based methods.",
+      description: "Developed a Hybrid Autoencoder-Driven ML Model for proactive performance monitoring in 5G cellular networks. The system utilizes a Deep AutoEncoder for feature extraction and a Random Forest classifier for predicting dropped connections with high accuracy.Designed an interactive Tkinter-based GUI for network administrators to train models, load datasets, and make real-time predictions.",
       tags: ["Python","Tkinter", "Machine Learning", "AutoEncoder", "Random Forest","SQLite"],
       link: "#",
     },
