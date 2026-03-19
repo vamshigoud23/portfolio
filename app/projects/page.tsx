@@ -1,44 +1,9 @@
 "use client";
 
+import { projects } from "./projectsData";
+import Link from "next/link";
+
 export default function Projects() {
-  const projects = [
-    {
-      title: "Hybrid AutoEncoder Driven ML model for Performance monitoring in 5g cellular Networks",
-      description: "Developed a Hybrid Autoencoder-Driven ML Model for proactive performance monitoring in 5G cellular networks. The system utilizes a Deep AutoEncoder for feature extraction and a Random Forest classifier for predicting dropped connections with high accuracy.Designed an interactive Tkinter-based GUI for network administrators to train models, load datasets, and make real-time predictions.",
-      tags: ["Python","Tkinter", "Machine Learning", "AutoEncoder", "Random Forest","SQLite"],
-      link: "#",
-    },
-    {
-      title: "Courier Management System",
-      description: "Engineered a courier management system that enhanced delivery accuracy by 25% , Integrated GPS Tracking for real-time updates and streamlined logistics operations reducing delivery time by 15%. Built an admin dashboard to manage orders, Customers, and delivery agents efficiently.",
-      tags: ["Python", "Django","mysql","HTML","CSS","JavaScript",],
-      link: "#",
-    },
-    {
-      title: "Analytics Dashboard",
-      description: "Data visualization platform with interactive charts and reporting features",
-      tags: ["React", "D3.js", "Node.js"],
-      link: "#",
-    },
-    {
-      title: "Social Media App",
-      description: "Mobile-first social platform with real-time messaging and media sharing",
-      tags: ["React Native", "Node.js", "PostgreSQL"],
-      link: "#",
-    },
-    {
-      title: "Portfolio CMS",
-      description: "Content management system for portfolio websites with drag-and-drop builder",
-      tags: ["Next.js", "Prisma", "Tailwind"],
-      link: "#",
-    },
-    {
-      title: "Weather Forecast App",
-      description: "Real-time weather application with 7-day forecasts and location tracking",
-      tags: ["React", "OpenWeather API", "Charts.js"],
-      link: "#",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
@@ -74,9 +39,10 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className="bg-zinc-50 dark:bg-zinc-900 rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:scale-105 animate-fadeIn cursor-pointer group"
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="bg-zinc-50 dark:bg-zinc-900 rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:scale-105 animate-fadeIn cursor-pointer group block"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 relative overflow-hidden">
@@ -84,7 +50,7 @@ export default function Projects() {
                 </div>
                 <div className="p-5 sm:p-6">
                   <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">
+                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -97,17 +63,14 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={project.link}
-                    className="inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-600 transition-colors"
-                  >
+                  <span className="inline-flex items-center text-sm font-medium text-blue-500 group-hover:text-blue-600 transition-colors">
                     View Project
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
